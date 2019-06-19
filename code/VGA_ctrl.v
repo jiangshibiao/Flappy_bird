@@ -30,7 +30,7 @@ module VGA_ctrl(
 	input [31:0] color,
 	output [9:0] x_ptr,
 	output [9:0] y_ptr,
-	output [8:0] addrb,
+	output [10:0] addrb,
 	output reg [8:0] pos,
 	output reg [1:0] run,
 	output reg [31:0] score,
@@ -43,7 +43,6 @@ module VGA_ctrl(
 	
 	wire [1:0] mod;
 	wire in, bird;
-	
 	
    initial begin
 		cnt_x = 10'd0;
@@ -104,15 +103,13 @@ module VGA_ctrl(
 	assign valid = x_ptr && x_ptr < 640 && y_ptr >= 0 && y_ptr < 480;
 	
 	assign mod = pos[1:0] ^ (2'd3);
-	
-	assign addrb = SW ? 9'd511 : ((valid && x_ptr[6:5] == mod) ? 9'd256 + ((pos - 9'd256 + {4'd0, x_ptr[9:7], 2'd0}) & 9'd255) : 9'd255);
-	
 	assign in   = valid && x_ptr[6:5] == mod && (y_ptr[8:5] <= color[19:16] || y_ptr[8:5] >= color[15:12]);
 	assign bird = valid && x_ptr[9:5] == 5'd0 && y_ptr[8:5] == cur;
 	
+	assign addrb = SW ? 11'd511 : (bird ? (11'd512 + {1'd0, y_ptr[4:0], 5'd0} + {6'd0, x_ptr[4:0]}) :((valid && x_ptr[6:5] == mod) ? 11'd256 + (({2'd0, pos} - 11'd256 + {6'd0, x_ptr[9:7], 2'd0}) & 11'd255) : 11'd255));
 	
-	assign red =   bird ? 4'hF : (in ? color[11:8] : 1'h0);
-	assign green = bird ? 4'h0 : (in ? color[7:4]  : 1'h0);
-	assign blue =  bird ? 4'h0 : (in ? color[3:0]  : 1'h0);
+	assign red =   bird ? color[11:8] : (in ? color[11:8] : 1'h0);
+	assign green = bird ? color[7:4] : (in ? color[7:4]  : 1'h0);
+	assign blue =  bird ? color[3:0] : (in ? color[3:0]  : 1'h0);
 	
 endmodule

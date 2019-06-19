@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Jun 14 15:43:18 2019
+// Written by: Map P.20131013 on Tue Jun 18 14:09:58 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -78,6 +78,26 @@ PIN
         = BEL
         "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram"
         PINNAME CLKBWRCLKL;
+PIN
+        U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<63>
+        = BEL
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram"
+        PINNAME CLKARDCLKU;
+PIN
+        U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<62>
+        = BEL
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram"
+        PINNAME CLKARDCLKL;
+PIN
+        U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<65>
+        = BEL
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram"
+        PINNAME CLKBWRCLKU;
+PIN
+        U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<64>
+        = BEL
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram"
+        PINNAME CLKBWRCLKL;
 TIMEGRP TM_CLK = BEL "U8/clkdiv_0" BEL "U8/clkdiv_1" BEL "U8/clkdiv_2" BEL
         "U8/clkdiv_3" BEL "U8/clkdiv_4" BEL "U8/clkdiv_5" BEL "U8/clkdiv_6"
         BEL "U8/clkdiv_7" BEL "U8/clkdiv_8" BEL "U8/clkdiv_9" BEL
@@ -151,6 +171,14 @@ TIMEGRP TM_CLK = BEL "U8/clkdiv_0" BEL "U8/clkdiv_1" BEL "U8/clkdiv_2" BEL
         "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<65>"
         PIN
         "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<64>"
+        PIN
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<63>"
+        PIN
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<62>"
+        PIN
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<65>"
+        PIN
+        "U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_pins<64>"
         BEL "U9/RSTN_temp" BEL "U9/sw_temp_0" BEL "U9/sw_temp_1" BEL
         "U9/sw_temp_10" BEL "U9/sw_temp_11" BEL "U9/sw_temp_12" BEL
         "U9/sw_temp_13" BEL "U9/sw_temp_14" BEL "U9/sw_temp_15" BEL

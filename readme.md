@@ -1,19 +1,25 @@
-## 计组大程：简易 Flappy Bird
+## Flappy Bird
 
-+ 实验原理
-	- 编写汇编程序转成机器码，丢到模拟出来的CPU里。
-	- 用到了 PS2 和 VGA （没有显式的显存，VGA直接和RAM进行交互）。
-+ 用户使用细节
-	- 按空格跳跃，按回车加速向下。
-	- 汇编指令了做了按键处理，按下一次后必须松开按第二次才有效。
-	- 为了控制每一帧的时间，稍微放慢了CPU的时钟。
-	- 汇编代码里控制了每一帧循环时间，到后来画面会越来越快。
-	- 拨上 `SW[2]`后，CPU时钟降低到非常慢的程度，如果拨`SW[7:5]=111` ，肉眼可以直接查看PC的运行地址。所以拨上它相当于是暂停。
-	- 拨上 `SW[8]`，进入调试模式。汇编代码里定义好的常量 `a[3]` 记录了一组指定地址，可以把要调试的信息 `sw` 进去，拨上 `SW[2]` 和 `SW[8]` 后，VGA 会读取这一段地址的值，并在 `top.v` 里传给七段数码管（通过`SW[7:5]=101` 来查看）。
-	- `RST` 存在问题，所以每次要重新 `programming` 才能进行新的游戏。
-	- 在 `coe` 文件夹里编译汇编文件，并在后面补0，扩充条数至250，再运行 `coe.cpp`，加上 `6+256` 条数据，前 `6` 条是常量，后 `256` 条是水管数据。
+[A detailed Chinese report for this project](https://github.com/jiangshibiao/pumpkinBattle/blob/master/ChineseReport/report.md)
 
-+ Upd1
-	- 把小鸟的图片（压缩成 $32 \times 32$）也载入了 `coe`，并调整了相应的接口宽度。
-	- `coe` 文件夹里的图片转 `coe` 的 `cpp` 是假的。本来一直红黄色的小鸟转成了蓝色。忙于验收没有管，可能需要小改一下。
-	- 汇编器推荐使用 `tsreaper` 学长写的，高亮很好看。
+## Project Introduction
++ This is my final report for the Computer Design course in Zhejiang University.
++ For the whole Computer Design class, I built up an simple CPU graudally. Then I wrote some  assemble codes to simulate the popular game **Flappy Bird** and run the corresponding machine codes on my own CPU.
++ The Player will control a bird to hide from the pipes and finally reach the end.
+
+## How to play?
++ Build up a new Xilinx ISE project and add files from [files].
++ Build the [Top.bit](https://github.com/jiangshibiao/Flappy_bird/blob/master/files/Top.bit) and load it on the tablet to play!
+
+## Player Instructions
++ Use the *space* to jump and use the *enter* to drop quicky (just as the flappy bird!).
++ The speed will be accelerated gradually, so the difficulty will increase.
++ When the player switches up `SW[2]`, the game will suspend.
++ It will change to the debug mode if the player switches up  `SW[8]`.
++ The Nixie Tube will display the real-time scores you get.
+
+## Some Screenshots
+#### Game interface
+![](https://github.com/jiangshibiao/Flappy_bird/blob/master/ChineseReport/0.jpg)
+#### Dead
+![](https://github.com/jiangshibiao/Flappy_bird/blob/master/ChineseReport/dead.jpg)
